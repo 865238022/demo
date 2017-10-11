@@ -1,0 +1,30 @@
+package top.huzhurong.demo;
+
+import top.huzhurong.utils.MySimpleDateFormat;
+
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * Created by 竹 on 2017/10/11.
+ */
+public class DateOperation {
+    public static void main(String[] args) {
+        Calendar cal = Calendar.getInstance();//使用默认时区和语言环境获得一个日历。
+        //取日期
+        cal.add(Calendar.DAY_OF_MONTH, -1);//取当前日期的前一天.
+        Date time = cal.getTime();
+        System.out.println(MySimpleDateFormat.tarsfer(time));
+        //如果+1 取得的是现在的日期
+        cal.add(Calendar.DAY_OF_MONTH, +2);//取当前日期的后一天.
+        Date time1 = cal.getTime();
+        System.out.println(MySimpleDateFormat.tarsfer(time1));
+
+        //取小时数
+        int hour = cal.get(cal.HOUR_OF_DAY);
+        System.out.println(hour);
+
+        int i = cal.get(Calendar.DAY_OF_WEEK_IN_MONTH);//这个月的第几周
+        System.out.println(i);
+    }
+}
