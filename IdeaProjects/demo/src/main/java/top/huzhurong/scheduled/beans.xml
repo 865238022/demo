@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+    <!--要将定时调度的任务交给Spring管理-->
+    <context:component-scan base-package="top.huzhurong.scheduled"></context:component-scan>
+    <!-- 任务驱动的注解-->
+    <task:annotation-driven scheduler="myScheduler"/>
+    <!--配置多线程环境-->
+    <task:scheduler id="myScheduler" pool-size="5"/>
+</beans>
